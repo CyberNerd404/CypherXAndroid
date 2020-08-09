@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/lin"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        android:background="@drawable/bottom_bar_shape"
+        android:elevation="5dp"
+        android:gravity="center"
+        >
+
+        <ImageButton
+            android:id="@+id/homeBtnStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:padding="15dp"
+            android:src="@drawable/ic_home_black_"
+            />
+        <ImageButton
+            android:id="@+id/searchBtnStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:padding="15dp"
+            android:src="@drawable/ic_search_black"
+            />
+        <ImageButton
+            android:id="@+id/addBtnStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:padding="15dp"
+            android:src="@drawable/ic_add_black"
+            />
+        <ImageButton
+            android:id="@+id/notificationBtnStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:padding="15dp"
+            android:src="@drawable/ic_notifications_blck"
+            />
+        <ImageButton
+            android:id="@+id/profileBtnStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:padding="15dp"
+            android:src="@drawable/ic_person_outline_"
+            />
+
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+
+</RelativeLayout>
