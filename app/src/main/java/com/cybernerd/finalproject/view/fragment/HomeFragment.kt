@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.adapter.ClassroomAdapter
-import com.cybernerd.finalproject.viewModel.ClassroomViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -19,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private lateinit var classroomAdapter: ClassroomAdapter
-    private lateinit var classroomViewModel: ClassroomViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +26,6 @@ class HomeFragment : Fragment() {
 
         val context : Context = context!!
 
-        classroomViewModel = ViewModelProvider(this).get(ClassroomViewModel::class.java)
 
 //        classroomViewModel.classroomlist.observe(viewLifecycleOwner, Observer {
 //            classroomAdapter.setClassroom(it.details)
