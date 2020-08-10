@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.model.Detail
 import com.cybernerd.finalproject.utils.debug
+import com.cybernerd.finalproject.view.ClassroomDetailActivity
 import kotlinx.android.synthetic.main.rv_classroom_child.view.*
 
 class ClassroomAdapter(private val context: Context) :
@@ -25,7 +26,6 @@ class ClassroomAdapter(private val context: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassroomAdapter.ViewHolder {
         return ViewHolder(
-//            LayoutInflater.from(context).inflate(R.layout.rv_classroom_child, parent, false)
         LayoutInflater.from(context).inflate(R.layout.rv_classroom_child, parent, false)
         )
     }
@@ -33,7 +33,7 @@ class ClassroomAdapter(private val context: Context) :
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         val name = view.tv_classroom_name!!
-        val latLong = view.tv_classroom_description!!
+        val description = view.tv_classroom_description!!
         val rootView = view.childRoot!!
 
     }
@@ -45,12 +45,12 @@ class ClassroomAdapter(private val context: Context) :
     override fun onBindViewHolder(holder: ClassroomAdapter.ViewHolder, position: Int) {
 
         holder.name.text = list[position].name
-        holder.latLong.text = list[position].description
+        holder.description.text = list[position].description
         holder.rootView.setOnClickListener {
-//            val intent = Intent(context, DetailActivity::class.java)
-//            intent.putExtra("location",list[position].woeid)
-//            intent.putExtra("name",list[position].title)
-//            context.startActivity(intent)
+            val intent = Intent(context, ClassroomDetailActivity::class.java)
+            intent.putExtra("name",list[position].name)
+            intent.putExtra("description",list[position].description)
+            context.startActivity(intent)
             debug("click","bhai click ho raha hai ispe : ${holder.rootView}")
         }
     }
