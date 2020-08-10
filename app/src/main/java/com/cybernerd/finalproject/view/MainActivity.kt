@@ -1,11 +1,12 @@
 package com.cybernerd.finalproject.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.adapter.PagerViewAdapter
+import com.cybernerd.finalproject.viewModel.MemberViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +19,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
 
+    private lateinit var memberViewModel: MemberViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
         // init views
         mViewPager = findViewById(R.id.mViewPager)
@@ -30,10 +36,13 @@ class MainActivity : AppCompatActivity() {
         searchBtn = findViewById(R.id.searchBtnStaff)
         notiBtn = findViewById(R.id.notificationBtnStaff)
 
+
+
         //onclick listner
 
         homeBtn.setOnClickListener {
             mViewPager.currentItem = 0
+
         }
 
         searchBtn.setOnClickListener {

@@ -23,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
+
+
         sessionManager = SessionManager(this)
 
 
