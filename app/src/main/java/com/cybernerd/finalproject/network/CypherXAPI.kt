@@ -1,7 +1,6 @@
 package com.cybernerd.finalproject.network
 
-import com.cybernerd.finalproject.model.ClassroomResponse
-import com.cybernerd.finalproject.model.LoginResponse
+import com.cybernerd.finalproject.model.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -37,6 +36,21 @@ interface CypherXAPI {
     @GET("classroom/manage/")
     fun getClassroom(
         @Header("Authorization") token : String): Call<ClassroomResponse>
+
+    @GET("chat/conversation-list/")
+    fun getConversationList(
+        @Header("Authorization") token : String): Call<ConversationList>
+
+
+    @GET("user/profile/")
+    fun getProfile(
+        @Header("Authorization") token : String): Call<Profile>
+
+    @GET("miscellaneous/department-users/")
+    fun getMember(
+        @Header("Authroization") token: String) : Call<User>
+
+
 
 
 }
