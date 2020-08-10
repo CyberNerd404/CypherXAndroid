@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.adapter.ClassroomAdapter
+import com.cybernerd.finalproject.viewModel.ClassroomViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -18,32 +19,29 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private lateinit var classroomAdapter: ClassroomAdapter
+    private lateinit var viewmodel : ClassroomViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        val context : Context = context!!
+        viewmodel = ViewModelProvider(this).get(ClassroomViewModel::class.java)
+        classroomAdapter = ClassroomAdapter(context!!)
 
-
-//        classroomViewModel.classroomlist.observe(viewLifecycleOwner, Observer {
-//            classroomAdapter.setClassroom(it.details)
-//        })
-//
-//        classroomAdapter = ClassroomAdapter(context)
-//        rv_classroom.adapter = classroomAdapter
-
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-
-
-
+        return root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        viewmodel.getAllClassroom()
+        viewmodel.classroomsLiveData.observe(viewLifecycleOwner, Observer {
+            classroomAdapter.setClassroom(it.details)
+        })
+        rv_classroom.adapter = classroomAdapter
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
 
