@@ -23,16 +23,17 @@ class LoginActivityRepository(val application: Application) {
     }
 
 
-    fun login(email: String, password: String){
+    fun login(email: String, password: String,loginActivityResult: LoginActivityResult){
         showProgress.value = true
         CypherXAPI().login(email, password).enqueue(object : Callback<LoginResponse>{
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(application,"Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                loginActivityResult.onFailer(t)
                 showProgress.value = false
             }
 
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
+                response.body()?.let { loginActivityResult.onSuccess(it) }
                 loginData.value = response.body()
                 debug("loginResponse","Response : ${Gson().toJson(response.body())}")
                 showProgress.value = false
@@ -44,6 +45,12 @@ class LoginActivityRepository(val application: Application) {
 
 
 
+    }
+
+    interface LoginActivityResult{
+        fun onSuccess(response: LoginResponse)
+
+        fun onFailer(t: Throwable)
     }
 
 }
