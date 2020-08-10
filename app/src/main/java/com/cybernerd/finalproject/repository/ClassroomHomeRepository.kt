@@ -13,11 +13,8 @@ import retrofit2.Response
 
 
 
-class ClassroomHomeRepository(val token: String) {
-
-
-    val classroom = MutableLiveData<ClassroomResponse>()
-
+class ClassroomHomeRepository(val token: String){
+    val classroomLiveData = MutableLiveData<ClassroomResponse>()
 
     fun getAllClassroom(){
 
@@ -30,10 +27,11 @@ class ClassroomHomeRepository(val token: String) {
                 call: Call<ClassroomResponse>,
                 response: Response<ClassroomResponse>
             ) {
-
+                classroomLiveData.value = response.body()
                 debug("classroom","${response.body()}")
             }
 
         })
     }
+
 }
