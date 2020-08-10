@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/childRoot"
+    android:layout_margin="1dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_reciever_name"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:text="Reciever"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_reciever_chat"
+            android:text="hi"
+            android:textColor="@color/white"
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
