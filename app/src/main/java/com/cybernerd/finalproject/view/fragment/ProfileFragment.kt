@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
 
         viewModel.getProfile()
         viewModel.profileLiveData.observe(viewLifecycleOwner, Observer {
-            debug("Profile","Fragment Profile : ${it.user}")
+//            debug("Profile","Fragment Profile : ${it.user}")
             profileName.text = it.user.first_name
             profileBio.text = it.user.bio
             profileEmail.text = it.user.email

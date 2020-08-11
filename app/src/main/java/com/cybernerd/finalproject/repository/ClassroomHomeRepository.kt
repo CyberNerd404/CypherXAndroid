@@ -28,7 +28,7 @@ class ClassroomHomeRepository(val token: String){
                 response: Response<ClassroomResponse>
             ) {
                 classroomLiveData.value = response.body()
-                debug("classroom","${response.body()}")
+//                debug("classroom","${response.body()}")
             }
 
         })

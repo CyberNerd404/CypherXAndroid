@@ -9,7 +9,7 @@ import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.model.User
 import com.cybernerd.finalproject.utils.debug
 import kotlinx.android.synthetic.main.rv_classroom_child.view.childRoot
-import kotlinx.android.synthetic.main.rv_stafmem_child.view.*
+import kotlinx.android.synthetic.main.rv_user_child.view.*
 
 
 class MemberAdapter(private val context: Context) :
@@ -26,7 +26,7 @@ class MemberAdapter(private val context: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemberAdapter.ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.rv_stafmem_child, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.rv_user_child, parent, false)
         )
     }
 

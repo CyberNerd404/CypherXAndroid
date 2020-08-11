@@ -1,4 +1,4 @@
-package com.cybernerd.finalproject.view
+package com.cybernerd.finalproject.view.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)  // ************** ye line pr
 
 
         sessionManager = SessionManager(this)
@@ -51,7 +51,8 @@ class LoginActivity : AppCompatActivity() {
             sessionManager.saveAuthToken(it.token)
             debug("token",sessionManager.fetchAuthToken().toString())
             if (it != null){
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,
+                    MainActivity::class.java))
                 finish()
             }
         })

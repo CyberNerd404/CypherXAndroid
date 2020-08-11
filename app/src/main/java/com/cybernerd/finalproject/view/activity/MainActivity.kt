@@ -1,4 +1,4 @@
-package com.cybernerd.finalproject.view
+package com.cybernerd.finalproject.view.activity
 
 import android.os.Bundle
 import android.widget.ImageButton

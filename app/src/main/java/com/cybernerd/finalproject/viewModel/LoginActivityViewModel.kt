@@ -11,24 +11,19 @@ import com.cybernerd.finalproject.utils.SessionManager
 
 class LoginActivityViewModel(application: Application): AndroidViewModel(application), LoginActivityRepository.LoginActivityResult {
 
-
-
-    private val repository = LoginActivityRepository(application)
+    private val repository = LoginActivityRepository()
     val showprogress : LiveData<Boolean>
     val loginData : MutableLiveData<LoginResponse>
 
-    lateinit var classroomRepository : ClassroomHomeRepository
-
+    var classroomRepository : ClassroomHomeRepository?
 
     init {
         this.showprogress = repository.showProgress
         this.loginData = repository.loginData
 
         classroomRepository = SessionManager(application).fetchAuthToken()?.let {
-            ClassroomHomeRepository(
-                it
-            )
-        }!!
+            ClassroomHomeRepository(it)
+        }
     }
 
     fun login(email: String, password: String){
@@ -38,7 +33,7 @@ class LoginActivityViewModel(application: Application): AndroidViewModel(applica
 
     override fun onSuccess(response: LoginResponse) {
         loginData.value = response
-        classroomRepository.getAllClassroom()
+        classroomRepository?.getAllClassroom()
 
     }
 

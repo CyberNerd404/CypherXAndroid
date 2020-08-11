@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.model.Detail
 import com.cybernerd.finalproject.utils.debug
-import com.cybernerd.finalproject.view.ClassroomDetailActivity
+import com.cybernerd.finalproject.view.activity.ClassroomDetailActivity
 import kotlinx.android.synthetic.main.rv_classroom_child.view.*
 
 class ClassroomAdapter(private val context: Context) :

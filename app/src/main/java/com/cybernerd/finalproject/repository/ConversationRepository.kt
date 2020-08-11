@@ -24,7 +24,7 @@ class ConversationRepository(val token : String) {
                 response: Response<ConversationList>
             ) {
                 recieverList.value = response.body()
-                debug("chat","success : ${response.body()}")
+//                debug("chat","success : ${response.body()}")
             }
 
         })

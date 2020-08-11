@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/childRoot"
-    android:layout_margin="1dp"
+    android:layout_margin="4dp"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -30,7 +30,7 @@
                 android:id="@+id/tv_seach_name"
                 android:fontFamily="sans-serif-condensed"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="UserName"
+                android:text="User Name"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
                 />
@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_seach_department"
             android:text="Department"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textColor="@color/white"
             android:layout_margin="5dp"
             />

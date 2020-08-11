@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivityRepository(val application: Application) {
+class LoginActivityRepository() {
 
     val showProgress = MutableLiveData<Boolean>()
     val loginData = MutableLiveData<LoginResponse>()
@@ -35,15 +35,11 @@ class LoginActivityRepository(val application: Application) {
 
                 response.body()?.let { loginActivityResult.onSuccess(it) }
                 loginData.value = response.body()
-                debug("loginResponse","Response : ${Gson().toJson(response.body())}")
+//                debug("loginResponse","Response : ${Gson().toJson(response.body())}")
                 showProgress.value = false
-
-
             }
 
         })
-
-
 
     }
 

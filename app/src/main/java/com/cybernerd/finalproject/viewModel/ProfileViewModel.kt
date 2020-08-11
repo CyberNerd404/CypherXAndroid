@@ -16,11 +16,8 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
         repository = SessionManager(application).fetchAuthToken()?.let {
             ProfileRepository(it)
         }!!
-
         this.profileLiveData = repository.profileLiveData
-
     }
-
 
     fun getProfile(){
         repository.getProfile()

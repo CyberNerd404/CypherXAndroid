@@ -8,11 +8,10 @@ import retrofit2.create
 import retrofit2.http.*
 
 
+//const val BASE_URL = "http://192.168.43.57:8000"
 const val BASE_URL = "https://cypherx404.herokuapp.com/"
 
 interface CypherXAPI {
-
-
     companion object{
         operator fun invoke() : CypherXAPI{
             return Retrofit.Builder()
@@ -21,9 +20,7 @@ interface CypherXAPI {
                 .build()
                 .create(CypherXAPI::class.java)
         }
-
     }
-
 
     @FormUrlEncoded
     @POST("user/login/")
@@ -31,7 +28,6 @@ interface CypherXAPI {
         @Field("email")email: String,
         @Field("password")password: String
     ): Call<LoginResponse>
-
 
     @GET("classroom/manage/")
     fun getClassroom(
@@ -41,7 +37,6 @@ interface CypherXAPI {
     fun getConversationList(
         @Header("Authorization") token : String): Call<ConversationList>
 
-
     @GET("user/profile/")
     fun getProfile(
         @Header("Authorization") token : String): Call<Profile>
@@ -50,7 +45,19 @@ interface CypherXAPI {
     fun getMember(
         @Header("Authroization") token: String) : Call<User>
 
+    @GET("miscellaneous/all-students/")
+    fun getAllStudent(
+        @Header("Authorization") token: String) : Call<StudentResponse>
 
+    @GET("staffroom/all-teachers")
+    fun getAllTeachers(
+        @Header("Authorization") token : String) : Call<StudentResponse>
+
+    @FormUrlEncoded
+    @POST("all-members/auto-complete/")
+    fun getAutoComplete(
+        @Header("Authorization") token : String,
+        @Field("name") name : String) : Call<List<AutoCompleteResponse>>
 
 
 }
